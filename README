@@ -2,3 +2,65 @@ This is your new Play application
 =====================================
 
 This file will be packaged with your application, when using `play dist`.
+
+Step 1: Cài đặt Scala và JVM
+
+
+sudo apt-get install default-jre
+sudo apt-get install scala
+Step 2: Download bản mới nhất của Play Framework (hiện tại 2.2.0 là phiển bản mới nhất của Play) và unzip
+
+
+sudo apt-get install unzip
+wget http://downloads.typesafe.com/play/2.2.0/play-2.2.0.zip
+unzip play-2.2.0.zip
+Step 3: Copy Play framework tới thư mục /opt và tạo 1 shortcut cho Play như vậy có thể type play một cách trực tiếp trên console
+
+sudo mv play-2.2.0 /opt
+sudo ln -s /opt/play-2.2.0 /opt/play
+sudo ln -s /opt/play/play /usr/local/bin/play
+Step 4: Chạy thử Play bằng cách type Play trong console và Enter
+
+play
+Nếu thành công console sẽ xuất hiện như sau:
+       _
+ _ __ | | __ _ _  _
+| '_ \| |/ _' | || |
+|  __/|_|\____|\__ /
+|_|            |__/
+ 
+play 2.2.0 built with Scala 2.10.2 (running Java 1.7.0_21), http://www.playframework.com
+ 
+This is not a play application!
+ 
+Use `play new` to create a new Play application in the current directory,
+or go to an existing application and launch the development console using `play`.
+ 
+You can also browse the complete documentation at http://www.playframework.com.
+ 
+
+Step 5: Install Java SDK
+
+
+sudo apt-get install openjdk-7-jdk
+Step 6: Create and run a Play Application
+
+play new Application_Name
+cd Application_Name/
+play run
+Step 7: Mở trình duyệt và gõ http://localhost:9000/
+
+
+Step 8: Để tạo cho eclipse có thể import được ta dùng lệnh:
+$ play eclipse
+
+Step 9: Chinh lai noi dung trang index thanh Hello PlayFramework:
+Vào file app\Controllers\Application sửa nội dung thành
+import play.api._
+import play.api.mvc._
+ 
+object Application extends Controller {
+  def index = Action {
+    Ok("Hello PlayFramework")
+  }
+}
